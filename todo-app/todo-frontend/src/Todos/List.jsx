@@ -34,15 +34,26 @@ const TodoList = ({ todos, deleteTodo, completeTodo }) => {
         )
 
         return (
-          <div style={{ display: 'flex', justifyContent: 'space-between', maxWidth: '70%', margin: 'auto' }}>
-            <span>
-              {todo.text} 
-            </span>
-            {todo.done ? doneInfo : notDoneInfo}
-          </div>
+          <Todo key={todo.id} todo={todo} doneInfo={doneInfo} notDoneInfo={notDoneInfo} />
         )
       }).reduce((acc, cur) => [...acc, <hr />, cur], [])}
     </>
+  )
+}
+
+export const Todo = ({ todo, doneInfo, notDoneInfo }) => {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        maxWidth: '70%',
+        margin: 'auto',
+      }}
+    >
+      <span>{todo.text}</span>
+      {todo.done ? doneInfo : notDoneInfo}
+    </div>
   )
 }
 

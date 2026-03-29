@@ -26,6 +26,13 @@ if (!REDIS_URL) {
   set = (...args) => client.set(...args)
 }
 
+//initialize added_todos to 0 if it doesn't exist
+get(`added_todos`).then(value => {
+  if (value === null) {
+    set(`added_todos`, 0)
+  }
+})
+
 module.exports = {
   get,
   set,

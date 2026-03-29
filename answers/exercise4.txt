@@ -1,0 +1,4 @@
+apt-get -y install curl
+curl -sL https:<em>//deb.nodesource.com/setup_24.x | bash</em>
+apt install -y nodejs
+node /usr/src/app/index.js
